@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">projeto_carteira_virtutal</string>
+    <string name="app_name">Carteira Virtual</string>
+    <string name="cadastro">TELA DE LOGIN</string>
+    <string name="login">Login</string>
+    <string name="button_entrar">Entrar</string>
+    <string name="digitar_email_hint">Digite aqui o seu e-mail</string>
+    <string name="digitar_senha_hint">Digite aqui o sua senha</string>
+    <string name="titulo_tela_de_login">tela de login</string>
+    <string name="tela_principal">Tela principal</string>
+    <string name="terceira_tela">Terceira tela</string>
 </resources>
