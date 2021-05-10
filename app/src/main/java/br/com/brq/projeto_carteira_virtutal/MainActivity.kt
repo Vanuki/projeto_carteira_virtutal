@@ -36,10 +36,9 @@ class MainActivity : AppCompatActivity() {
             val usuario = User(email = email, senha = senha)
 
             if (usuario.validarEmail() && usuario.validarSenha()) {
-                val intent = Intent(this, Teste::class.java)
-                startActivity(intent)
+                println("E-mail ou Senha válidos")
             } else {
-                println("e-mail ou senha inválidos")
+                println("E-mail ou Senha inválidos")
             }
 
         }
