@@ -6,6 +6,6 @@
     <string name="digitar_email_hint">Digite aqui o seu e-mail</string>
     <string name="digitar_senha_hint">Digite aqui o sua senha</string>
     <string name="titulo_tela_de_login">tela de login</string>
-    <string name="tela_principal">Tela principal</string>
-    <string name="terceira_tela">Terceira tela</string>
+    <string name="segunda_activity_saldo">Seu saldo:</string>
+    <string name="segunda_activity_gastos">Seus gastos:</string>
 </resources>
