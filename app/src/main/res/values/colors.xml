@@ -13,5 +13,6 @@
     <color name="medium_green">#81b214</color>
     <color name="third_green">#2c4250</color>
     <color name="green_components">#206a5d</color>
+    <color name="light_green">#52DD17</color>
     <color name="offwhite_background">#f1f1e8</color>
 </resources>

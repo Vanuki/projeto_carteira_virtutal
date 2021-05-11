@@ -18,7 +18,9 @@
         app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.944" />
 
     <EditText
         android:id="@+id/email"
@@ -60,8 +62,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="15dp"
-        android:backgroundTint="#52DD17"
-        android:hint="NEXT"
+        android:backgroundTint="@color/light_green"
+        android:hint="@string/button_entrar"
         android:textColor="@color/offwhite_background"
         android:textStyle="bold"
         android:textSize="30dp"
@@ -75,14 +77,19 @@
 
     <TextView
         android:id="@+id/titulo"
-        android:text="TELA DE LOGUIN"
-        android:textSize="40dp"
-        android:gravity="center"
-        android:background="@color/teal_200"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/light_green"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="@string/cadastro"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
