@@ -14,10 +14,6 @@ class SegundaTela : AppCompatActivity() {
 
 
 
-        btnFlAdd.setOnClickListener(){
-
-        }
-
     }
 
 
