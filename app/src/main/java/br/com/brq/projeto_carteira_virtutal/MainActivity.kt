@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             else {
-
+                email.error = "E-MAIL OU SENHA INCORRETOS"
                 senha.error = "E-MAIL OU SENHA INCORRETOS"
             }
         }
