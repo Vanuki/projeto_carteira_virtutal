@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.brq.projeto_carteira_virtutal.Model.Gastos
+import java.text.DecimalFormat
 
 class Adapter(
         val context: Context,
@@ -22,8 +23,8 @@ class Adapter(
 
     override fun onBindViewHolder(holder: ViewHolderGastos, position: Int) {
         listaDeGastos[position].also {
-            holder.textViewValor.text = it.valor
-
+            val num = DecimalFormat("#,###.00")
+            holder.textViewValor.text = num.format(it.valor)
         }
     }
 
