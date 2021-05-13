@@ -42,7 +42,12 @@ class SegundaTela : AppCompatActivity(){
 
     fun carregarEventos() {
         botaoGastosAdd.setOnClickListener() {
-            adapter.addItem(Gastos(valor.text.toString().toDouble()))
+            if(valor == null){
+                valor.error = "ERRO"
+            }
+            else{
+                adapter.addItem(Gastos(valor.text.toString().toDouble()))
+            }
         }
     }
 
