@@ -16,7 +16,6 @@ class SegundaTela : AppCompatActivity() {
         setContentView(R.layout.activity_segunda_tela)
 
 
-
     }
 
 }
