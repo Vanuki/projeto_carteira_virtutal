@@ -19,7 +19,7 @@ class SegundaTela : AppCompatActivity(){
     lateinit var botaoSaldoAdd: FloatingActionButton
     lateinit var botaoGastosAdd: FloatingActionButton
     lateinit var valorGasto: EditText
-    lateinit var valorSaldo: EditText
+    lateinit var entradaSaldo: EditText
     lateinit var somaSaldo: TextView
     lateinit var recycler: RecyclerView
     lateinit var adapter: Adapter
@@ -45,7 +45,7 @@ class SegundaTela : AppCompatActivity(){
 
     fun carregarEventos() {
         botaoGastosAdd.setOnClickListener() {
-            if(valorGasto == null){
+            if(valorGasto.text.isEmpty()){
                 valorGasto.error = "ERRO"
             }
             else{
@@ -53,17 +53,32 @@ class SegundaTela : AppCompatActivity(){
             }
         }
         botaoSaldoAdd.setOnClickListener() {
-            val saldo = Saldo(valorSaldo.toString().toDouble())
-            somaSaldo.text = "exemplo"
+            if(entradaSaldo.text.isEmpty()){
+                entradaSaldo.error = "ERRO"
+            }
+            else{
+                var valorNaTela = somaSaldo.text
+                var saldo = Saldo(entradaSaldo.text.toString().toDouble())
+                if(valorNaTela.isEmpty() && valorNaTela == "0"){
+                    somaSaldo.text = saldo.valor.toString()
+                }
+                else{
+                    var valorNaTelaDouble = valorNaTela.toString().toDouble()
+                    somaSaldo.text = (valorNaTelaDouble + saldo.valor).toString()
+                }
+
+            }
         }
     }
 
     fun carregarElementos() {
-        valorGasto = findViewById(R.id.novo_gasto)
-        valorSaldo = findViewById(R.id.novo_saldo)
+        entradaSaldo = findViewById(R.id.novo_saldo)
         botaoSaldoAdd = findViewById(R.id.botaoSaldoAdd)
         somaSaldo = findViewById(R.id.soma_saldo)
+
+        valorGasto = findViewById(R.id.novo_gasto)
         botaoGastosAdd = findViewById(R.id.botaoGastosAdd)
+
         recycler = findViewById(R.id.gastos)
     }
 
