@@ -146,7 +146,7 @@
         android:id="@+id/gastos"
         android:paddingTop="30dp"
         android:paddingBottom="30dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/novo_gasto"
         app:layout_constraintEnd_toEndOf="parent"
