@@ -15,14 +15,17 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class SegundaTela : AppCompatActivity(){
-
-    lateinit var botaoSaldoAdd: FloatingActionButton
-    lateinit var botaoGastosAdd: FloatingActionButton
-    lateinit var valorGasto: EditText
     lateinit var entradaSaldo: EditText
+    lateinit var botaoSaldoAdd: FloatingActionButton
     lateinit var somaSaldo: TextView
+
+    lateinit var valorGasto: EditText
+    lateinit var botaoGastosAdd: FloatingActionButton
+    lateinit var somaGastos: TextView
+
     lateinit var recycler: RecyclerView
     lateinit var adapter: Adapter
+
     lateinit var listaDeGastos: ArrayList<Gastos>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,19 +42,10 @@ class SegundaTela : AppCompatActivity(){
             recycler.adapter = it
         }
 
-
         recycler.layoutManager = LinearLayoutManager(this)
     }
 
     fun carregarEventos() {
-        botaoGastosAdd.setOnClickListener() {
-            if(valorGasto.text.isEmpty()){
-                valorGasto.error = "ERRO"
-            }
-            else{
-                adapter.addItem(Gastos(valorGasto.text.toString().toDouble()))
-            }
-        }
         botaoSaldoAdd.setOnClickListener() {
             if(entradaSaldo.text.isEmpty()){
                 entradaSaldo.error = "ERRO"
@@ -68,6 +62,23 @@ class SegundaTela : AppCompatActivity(){
                 }
             }
         }
+        botaoGastosAdd.setOnClickListener() {
+            if(valorGasto.text.isEmpty()){
+                valorGasto.error = "ERRO"
+            }
+            else{
+                var valorNaTela = somaGastos.text
+                var gastos = Gastos(valorGasto.text.toString().toDouble())
+                if(valorNaTela.isEmpty() && valorNaTela == "0"){
+                    somaGastos.text = gastos.valor.toString()
+                }
+                else{
+                    var valorNatTelaDouble = valorNaTela.toString().toDouble()
+                    somaGastos.text = (valorNatTelaDouble + gastos.valor).toString()
+                    adapter.addItem(Gastos(valorGasto.text.toString().toDouble()))
+                }
+            }
+        }
     }
 
     fun carregarElementos() {
@@ -77,6 +88,7 @@ class SegundaTela : AppCompatActivity(){
 
         valorGasto = findViewById(R.id.novo_gasto)
         botaoGastosAdd = findViewById(R.id.botaoGastosAdd)
+        somaGastos = findViewById(R.id.soma_gastos)
 
         recycler = findViewById(R.id.gastos)
     }
