@@ -66,7 +66,6 @@ class SegundaTela : AppCompatActivity(){
                     var valorNaTelaDouble = valorNaTela.toString().toDouble()
                     somaSaldo.text = (valorNaTelaDouble + saldo.valor).toString()
                 }
-
             }
         }
     }
