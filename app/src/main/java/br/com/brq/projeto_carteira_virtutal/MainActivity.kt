@@ -31,8 +31,7 @@ class MainActivity : AppCompatActivity() {
 
             if (usuario.validarEmail() && usuario.validarSenha()) {
                 startActivity(Intent(this, SegundaTela::class.java))
-            }
-            else {
+            } else {
                 email.error = "E-MAIL OU SENHA INCORRETOS"
                 senha.error = "E-MAIL OU SENHA INCORRETOS"
             }

@@ -14,18 +14,26 @@ import br.com.brq.projeto_carteira_virtutal.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
-class SegundaTela : AppCompatActivity(){
+class SegundaTela : AppCompatActivity() {
+    /**VARIÁVEIS DO SALDO*/
+    lateinit var valorNaTelaSaldo: CharSequence
+    var valorNaTelaSaldoDouble = 0.0
     lateinit var entradaSaldo: EditText
     lateinit var botaoSaldoAdd: FloatingActionButton
     lateinit var somaSaldo: TextView
 
+    /**VARIÁVEIS DO GASTO*/
+    lateinit var valorNaTelaGasto: CharSequence
+    var valorNaTelaGastoDouble = 0.0
     lateinit var valorGasto: EditText
     lateinit var botaoGastosAdd: FloatingActionButton
     lateinit var somaGastos: TextView
 
+    /**VARIÁVEIS DO RECYCLER VIEW*/
     lateinit var recycler: RecyclerView
     lateinit var adapter: Adapter
 
+    /**VARIÁVEL DA LISTA*/
     lateinit var listaDeGastos: ArrayList<Gastos>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +43,6 @@ class SegundaTela : AppCompatActivity(){
         carregarElementos()
         carregarEventos()
         carregarArray()
-
 
         Adapter(this, listaDeGastos, null).let {
             adapter = it
@@ -47,49 +54,39 @@ class SegundaTela : AppCompatActivity(){
 
     fun carregarEventos() {
         botaoSaldoAdd.setOnClickListener() {
-            if(entradaSaldo.text.isEmpty()){
+            if (entradaSaldo.text.isEmpty()) {
                 entradaSaldo.error = "ERRO"
-            }
-            else{
-                var valorNaTela = somaSaldo.text
+            } else {
+                valorNaTelaSaldo = somaSaldo.text
                 var saldo = Saldo(entradaSaldo.text.toString().toDouble())
-                if(valorNaTela.isEmpty() && valorNaTela == "0"){
-                    somaSaldo.text = saldo.valor.toString()
-                }
-                else{
-                    var valorNaTelaDouble = valorNaTela.toString().toDouble()
-                    somaSaldo.text = (valorNaTelaDouble + saldo.valor).toString()
-                }
+                valorNaTelaSaldoDouble = valorNaTelaSaldo.toString().toDouble()
+                somaSaldo.text = (valorNaTelaSaldoDouble + saldo.valor).toString()
             }
         }
         botaoGastosAdd.setOnClickListener() {
-            if(valorGasto.text.isEmpty()){
+            if (valorGasto.text.isEmpty()) {
                 valorGasto.error = "ERRO"
-            }
-            else{
-                var valorNaTela = somaGastos.text
+            } else {
+                valorNaTelaGasto = somaGastos.text
                 var gastos = Gastos(valorGasto.text.toString().toDouble())
-                if(valorNaTela.isEmpty() && valorNaTela == "0"){
-                    somaGastos.text = gastos.valor.toString()
-                }
-                else{
-                    var valorNatTelaDouble = valorNaTela.toString().toDouble()
-                    somaGastos.text = (valorNatTelaDouble + gastos.valor).toString()
-                    adapter.addItem(Gastos(valorGasto.text.toString().toDouble()))
-                }
+                valorNaTelaGastoDouble = valorNaTelaGasto.toString().toDouble()
+                somaGastos.text = (valorNaTelaGastoDouble + gastos.valor).toString()
+                adapter.addItem(Gastos(valorGasto.text.toString().toDouble()))
+                somaSaldo.text = (valorNaTelaSaldoDouble - gastos.valor).toString()
             }
         }
     }
 
     fun carregarElementos() {
+        /**VARIÁVEIS DO SALDO*/
         entradaSaldo = findViewById(R.id.novo_saldo)
         botaoSaldoAdd = findViewById(R.id.botaoSaldoAdd)
         somaSaldo = findViewById(R.id.soma_saldo)
-
+        /**VARIÁVEIS DO GASTO*/
         valorGasto = findViewById(R.id.novo_gasto)
         botaoGastosAdd = findViewById(R.id.botaoGastosAdd)
         somaGastos = findViewById(R.id.soma_gastos)
-
+        /**VARIÁVEL DO RECYCLER VIEW*/
         recycler = findViewById(R.id.gastos)
     }
 
