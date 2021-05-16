@@ -15,6 +15,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class SegundaTela : AppCompatActivity() {
+
+    /**VARIÁVEIS AUXILIAR DO CALCULO*/
+    lateinit var aux : String
+
     /**VARIÁVEIS DO SALDO*/
     lateinit var valorNaTelaSaldo: CharSequence
     var valorNaTelaSaldoDouble = 0.0
@@ -72,7 +76,8 @@ class SegundaTela : AppCompatActivity() {
                 valorNaTelaGastoDouble = valorNaTelaGasto.toString().toDouble()
                 somaGastos.text = (valorNaTelaGastoDouble + gastos.valor).toString()
                 adapter.addItem(Gastos(valorGasto.text.toString().toDouble()))
-                somaSaldo.text = (valorNaTelaSaldoDouble - gastos.valor).toString()
+                aux =  ((somaSaldo.text.toString().toDouble())- gastos.valor).toString()
+                somaSaldo.text = aux
             }
         }
     }
