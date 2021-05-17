@@ -8,4 +8,6 @@
     <string name="titulo_tela_de_login">tela de login</string>
     <string name="segunda_activity_saldo">Seu saldo:</string>
     <string name="segunda_activity_gastos">Seus gastos:</string>
+    <string name="objetivo">Qual o preço do seu objetivo?</string>
+    <string name="preco">Preço:</string>
 </resources>
