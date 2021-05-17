@@ -90,11 +90,11 @@ class SegundaTela : AppCompatActivity() {
             }
         }
         botaoGastosLimpar.setOnClickListener() {
-            var n = 0
             somaGastos.setText("0")
-            while (n < listaDeGastos.size) {
-                adapter.removeItem(n)
-                n++
+            if(listaDeGastos.size == 0){
+            }
+            else{
+                adapter.removeItem(0)
             }
         }
     }
