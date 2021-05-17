@@ -2,6 +2,7 @@ package br.com.brq.projeto_carteira_virtutal.Telas
 
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -17,13 +18,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class SegundaTela : AppCompatActivity() {
 
     /**VARIÁVEIS AUXILIAR DO CALCULO*/
-    lateinit var aux : String
+    lateinit var aux: String
 
     /**VARIÁVEIS DO SALDO*/
     lateinit var valorNaTelaSaldo: CharSequence
     var valorNaTelaSaldoDouble = 0.0
     lateinit var entradaSaldo: EditText
     lateinit var botaoSaldoAdd: FloatingActionButton
+    lateinit var botaoSaldoLimpar: Button
     lateinit var somaSaldo: TextView
 
     /**VARIÁVEIS DO GASTO*/
@@ -31,6 +33,7 @@ class SegundaTela : AppCompatActivity() {
     var valorNaTelaGastoDouble = 0.0
     lateinit var valorGasto: EditText
     lateinit var botaoGastosAdd: FloatingActionButton
+    lateinit var botaoGastosLimpar: Button
     lateinit var somaGastos: TextView
 
     /**VARIÁVEIS DO RECYCLER VIEW*/
@@ -57,6 +60,7 @@ class SegundaTela : AppCompatActivity() {
     }
 
     fun carregarEventos() {
+        /**EVENTOS DO SALDO*/
         botaoSaldoAdd.setOnClickListener() {
             if (entradaSaldo.text.isEmpty()) {
                 entradaSaldo.error = "ERRO"
@@ -67,6 +71,10 @@ class SegundaTela : AppCompatActivity() {
                 somaSaldo.text = (valorNaTelaSaldoDouble + saldo.valor).toString()
             }
         }
+        botaoSaldoLimpar.setOnClickListener() {
+            somaSaldo.setText("0")
+        }
+        /**EVENTOS DOS GASTOS*/
         botaoGastosAdd.setOnClickListener() {
             if (valorGasto.text.isEmpty()) {
                 valorGasto.error = "ERRO"
@@ -75,9 +83,18 @@ class SegundaTela : AppCompatActivity() {
                 var gastos = Gastos(valorGasto.text.toString().toDouble())
                 valorNaTelaGastoDouble = valorNaTelaGasto.toString().toDouble()
                 somaGastos.text = (valorNaTelaGastoDouble + gastos.valor).toString()
-                adapter.addItem(Gastos(valorGasto.text.toString().toDouble()))
-                aux =  ((somaSaldo.text.toString().toDouble())- gastos.valor).toString()
+                aux = ((somaSaldo.text.toString().toDouble()) - gastos.valor).toString()
                 somaSaldo.text = aux
+                /**PARTE DO ADAPTER*/
+                adapter.addItem(Gastos(valorGasto.text.toString().toDouble()))
+            }
+        }
+        botaoGastosLimpar.setOnClickListener() {
+            var n = 0
+            somaGastos.setText("0")
+            while (n < listaDeGastos.size) {
+                adapter.removeItem(n)
+                n++
             }
         }
     }
@@ -85,11 +102,13 @@ class SegundaTela : AppCompatActivity() {
     fun carregarElementos() {
         /**VARIÁVEIS DO SALDO*/
         entradaSaldo = findViewById(R.id.novo_saldo)
-        botaoSaldoAdd = findViewById(R.id.botaoSaldoAdd)
+        botaoSaldoAdd = findViewById(R.id.botao_saldo_add)
+        botaoSaldoLimpar = findViewById(R.id.limpar_saldo)
         somaSaldo = findViewById(R.id.soma_saldo)
         /**VARIÁVEIS DO GASTO*/
         valorGasto = findViewById(R.id.novo_gasto)
-        botaoGastosAdd = findViewById(R.id.botaoGastosAdd)
+        botaoGastosAdd = findViewById(R.id.botao_gastos_add)
+        botaoGastosLimpar = findViewById(R.id.limpar_gastos)
         somaGastos = findViewById(R.id.soma_gastos)
         /**VARIÁVEL DO RECYCLER VIEW*/
         recycler = findViewById(R.id.gastos)

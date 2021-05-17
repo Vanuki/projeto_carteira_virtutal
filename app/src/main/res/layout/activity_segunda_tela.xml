@@ -39,7 +39,7 @@
         app:layout_constraintVertical_bias="0.373" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/botaoGastosAdd"
+        android:id="@+id/botao_gastos_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -97,7 +97,7 @@
         app:layout_constraintVertical_bias="0.121" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/botaoSaldoAdd"
+        android:id="@+id/botao_saldo_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -155,5 +155,31 @@
         app:layout_constraintHorizontal_bias="0.072"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/soma_gastos" />
+
+    <Button
+        android:id="@+id/limpar_saldo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LIMPAR"
+        android:backgroundTint="#FF0303"
+        app:layout_constraintBottom_toTopOf="@+id/soma_saldo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintStart_toEndOf="@+id/text_view_saldo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/limpar_gastos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LIMPAR"
+        android:backgroundTint="#FF0303"
+        app:layout_constraintBottom_toTopOf="@+id/soma_gastos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.832"
+        app:layout_constraintStart_toEndOf="@+id/text_view_gastos"
+        app:layout_constraintTop_toBottomOf="@+id/novo_saldo"
+        app:layout_constraintVertical_bias="0.469" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
