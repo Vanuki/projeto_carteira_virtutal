@@ -11,13 +11,16 @@ lateinit var entradaValor: EditText
 lateinit var saidaValor: TextView
 lateinit var botao: ImageButton
 
-class TerceiraTela : AppCompatActivity() {
+open class TerceiraTela : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_terceira_tela)
 
+
         carregarElementos()
         carregarEventos()
+
+
 
     }
 
@@ -28,9 +31,10 @@ class TerceiraTela : AppCompatActivity() {
         botao = findViewById(R.id.botao_entrada)
     }
 
-    fun carregarEventos(){
+    fun carregarEventos() {
+        val activity = parent as SegundaTela
         botao.setOnClickListener(){
-
+        saidaValor = activity.somaSaldo
         }
     }
 }

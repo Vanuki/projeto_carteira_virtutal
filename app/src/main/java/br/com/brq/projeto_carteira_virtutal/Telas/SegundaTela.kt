@@ -17,7 +17,7 @@ import br.com.brq.projeto_carteira_virtutal.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
-class SegundaTela : AppCompatActivity() {
+open class SegundaTela : AppCompatActivity() {
 
     /**VARIÁVEIS AUXILIAR DO CALCULO*/
     lateinit var aux: String
