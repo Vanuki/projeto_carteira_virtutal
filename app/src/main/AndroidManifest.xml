@@ -9,8 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Projeto_carteira_virtutal">
-        <activity android:name=".Telas.ObjetivoActivity"></activity>
-        <activity android:name=".Telas.MainActivity" />
+        <activity android:name=".Telas.TerceiraTela"/>
         <activity android:name=".Telas.SegundaTela" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -20,5 +19,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

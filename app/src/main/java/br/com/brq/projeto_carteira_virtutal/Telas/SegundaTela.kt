@@ -1,9 +1,11 @@
 package br.com.brq.projeto_carteira_virtutal.Telas
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,6 +42,9 @@ class SegundaTela : AppCompatActivity() {
     lateinit var recycler: RecyclerView
     lateinit var adapter: Adapter
 
+    /**VARIÁVEL DO COFRINHO*/
+    lateinit var cofrinho: ImageButton
+
     /**VARIÁVEL DA LISTA*/
     lateinit var listaDeGastos: ArrayList<Gastos>
 
@@ -57,6 +62,24 @@ class SegundaTela : AppCompatActivity() {
         }
 
         recycler.layoutManager = LinearLayoutManager(this)
+    }
+
+
+    fun carregarElementos() {
+        /**VARIÁVEIS DO SALDO*/
+        entradaSaldo = findViewById(R.id.entrada_valor)
+        botaoSaldoAdd = findViewById(R.id.botao_saldo_add)
+        botaoSaldoLimpar = findViewById(R.id.limpar_saldo)
+        somaSaldo = findViewById(R.id.soma_saldo)
+        /**VARIÁVEIS DO GASTO*/
+        valorGasto = findViewById(R.id.novo_gasto)
+        botaoGastosAdd = findViewById(R.id.botao_gastos_add)
+        botaoGastosLimpar = findViewById(R.id.limpar_gastos)
+        somaGastos = findViewById(R.id.soma_gastos)
+        /**VARIÁVEL DO COFRINHO*/
+        cofrinho = findViewById(R.id.cofrinho)
+        /**VARIÁVEL DO RECYCLER VIEW*/
+        recycler = findViewById(R.id.gastos)
     }
 
     fun carregarEventos() {
@@ -91,27 +114,15 @@ class SegundaTela : AppCompatActivity() {
         }
         botaoGastosLimpar.setOnClickListener() {
             somaGastos.setText("0")
-            if(listaDeGastos.size == 0){
-            }
-            else{
+            if (listaDeGastos.size == 0) {
+            } else {
                 adapter.removeItem(0)
             }
         }
-    }
-
-    fun carregarElementos() {
-        /**VARIÁVEIS DO SALDO*/
-        entradaSaldo = findViewById(R.id.novo_saldo)
-        botaoSaldoAdd = findViewById(R.id.botao_saldo_add)
-        botaoSaldoLimpar = findViewById(R.id.limpar_saldo)
-        somaSaldo = findViewById(R.id.soma_saldo)
-        /**VARIÁVEIS DO GASTO*/
-        valorGasto = findViewById(R.id.novo_gasto)
-        botaoGastosAdd = findViewById(R.id.botao_gastos_add)
-        botaoGastosLimpar = findViewById(R.id.limpar_gastos)
-        somaGastos = findViewById(R.id.soma_gastos)
-        /**VARIÁVEL DO RECYCLER VIEW*/
-        recycler = findViewById(R.id.gastos)
+        /**PARTE DO COFRINHO*/
+        cofrinho.setOnClickListener(){
+            startActivity(Intent(this, TerceiraTela::class.java))
+        }
     }
 
     fun carregarArray() {

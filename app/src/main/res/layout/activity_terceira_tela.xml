@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_obejtivo"
-    tools:context=".Telas.ObjetivoActivity">
+    tools:context=".Telas.TerceiraTela">
 
     <TextView
         android:id="@+id/text_view_objetivo"
@@ -23,12 +23,12 @@
         app:layout_constraintVertical_bias="0.07" />
 
     <EditText
-        android:id="@+id/novo_saldo"
+        android:id="@+id/entrada_valor"
         android:layout_width="246dp"
         android:layout_height="50dp"
         android:backgroundTint="@color/dark_grey"
         android:hint="Digite um valor"
-        android:inputType="text"
+        android:inputType="numberDecimal"
         android:textColor="@color/third_green"
         android:textColorHint="@color/dark_grey"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,7 +39,7 @@
         app:layout_constraintVertical_bias="0.154" />
 
     <ImageButton
-        android:id="@+id/send_button1"
+        android:id="@+id/botao_entrada"
         android:layout_width="78dp"
         android:layout_height="48dp"
         android:backgroundTint="@color/light_green"
@@ -96,12 +96,12 @@
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"
         app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/novo_saldo"
+        app:layout_constraintTop_toBottomOf="@+id/entrada_valor"
         app:layout_constraintVertical_bias="0.205"
         tools:layout_editor_absoluteX="-16dp" />
 
     <TextView
-        android:id="@+id/diferenca_valor"
+        android:id="@+id/saida_valor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="25dp"
