@@ -148,13 +148,25 @@
         android:id="@+id/gastos"
         android:paddingTop="30dp"
         android:paddingBottom="30dp"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/novo_gasto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.072"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/soma_gastos" />
+
+    <ImageButton
+        android:layout_width="123dp"
+        android:layout_height="124dp"
+        android:backgroundTint="@color/offwhite_background"
+        android:src="@drawable/ic__cofre"
+        app:layout_constraintBottom_toTopOf="@+id/novo_gasto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toEndOf="@+id/gastos"
+        app:layout_constraintTop_toBottomOf="@+id/soma_gastos"
+        app:layout_constraintVertical_bias="0.06" />
 
     <Button
         android:id="@+id/limpar_saldo"
