@@ -28,12 +28,18 @@ class MainActivity : AppCompatActivity() {
 
         botaoEntrar.setOnClickListener() {
             val usuario = User(email = email.text.toString(), senha = senha.text.toString())
+            val validaEmail = usuario.validarEmail()
+            val validaSenha = usuario.validarSenha()
 
-            if (usuario.validarEmail() && usuario.validarSenha()) {
+            if (validaEmail && validaSenha) {
                 startActivity(Intent(this, SegundaTela::class.java))
             } else {
-                email.error = "E-MAIL OU SENHA INCORRETOS"
-                senha.error = "E-MAIL OU SENHA INCORRETOS"
+                if(!validaEmail){
+                    email.error = "E-MAIL INCORRETO"
+                }
+                if(!validaSenha){
+                    senha.error = "SENHA INCORRETA"
+                }
             }
         }
     }

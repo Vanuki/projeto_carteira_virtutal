@@ -10,7 +10,7 @@ import br.com.brq.projeto_carteira_virtutal.R
 lateinit var entradaValor: EditText
 lateinit var saidaValor: TextView
 lateinit var botao: ImageButton
-var somaSaldo:String? = null
+var somaSaldo: String? = null
 
 open class TerceiraTela : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,9 +21,6 @@ open class TerceiraTela : AppCompatActivity() {
 
         carregarElementos()
         carregarEventos()
-
-
-
     }
 
 
@@ -34,8 +31,8 @@ open class TerceiraTela : AppCompatActivity() {
     }
 
     fun carregarEventos() {
-        botao.setOnClickListener(){
-        saidaValor.setText(somaSaldo)
+        botao.setOnClickListener() {
+            saidaValor.setText(somaSaldo)
         }
     }
 }

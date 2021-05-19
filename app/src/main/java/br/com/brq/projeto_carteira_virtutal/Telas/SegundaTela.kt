@@ -123,7 +123,7 @@ open class SegundaTela : AppCompatActivity() {
         cofrinho.setOnClickListener(){
             val intent = Intent(this, TerceiraTela::class.java)
             intent.putExtra("somaSaldo", somaSaldo.text)
-            startActivity(Intent(this, TerceiraTela::class.java))
+            startActivity(intent)
         }
     }
 
